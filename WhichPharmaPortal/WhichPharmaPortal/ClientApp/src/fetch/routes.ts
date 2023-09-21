@@ -1,0 +1,40 @@
+import appSettings from '../appSettings';
+
+export const routes = {
+    login: () => `${appSettings.backend_url}v1/users/authenticate`,
+    users: () => `${appSettings.backend_url}v1/users`,
+    accessLinkRequest: () => `${appSettings.backend_url}v1/users/accessLinkRequest`,
+    usersCollaborators: () => `${appSettings.backend_url}v1/users/collaborators`,
+    myUser: () => `${appSettings.backend_url}v1/users/me`,
+    myUserThirdPartyLink: () => `${appSettings.backend_url}v1/users/me/thirdpartylink`,
+    mySettings: () => `${appSettings.backend_url}v1/users/me/settings`,
+    user: (username: string) => `${appSettings.backend_url}v1/users/${username}`,
+    products: () => `${appSettings.backend_url}v1/products`,
+    productsV2: () => `${appSettings.backend_url}v2/products`,
+    shortages: () => `${appSettings.backend_url}v1/shortages`,
+    productsSet: (setName: string) => `${appSettings.backend_url}v2/products/sets/${setName}`,
+    productsV2Set: (setName: string) => `${appSettings.backend_url}v2/products/sets/${setName}`,
+    suppliers: () => `${appSettings.backend_url}v1/suppliers`,
+    rfqs: () => `${appSettings.backend_url}v1/rfqs`,
+    rfqsDetails: () => `${appSettings.backend_url}v1/rfqs/details`,
+    rfqDetails: (rfqNumber: string) => `${appSettings.backend_url}v1/rfqs/${encodeURIComponent(rfqNumber)}`,
+    rfqHistory: (rfqNumber: string) => `${appSettings.backend_url}v1/rfqs/${encodeURIComponent(rfqNumber)}/history`,
+    rfqAssignee: (rfqNumber: string) => `${appSettings.backend_url}v1/rfqs/${encodeURIComponent(rfqNumber)}/assignee`,
+    rfqsDueDate: (rfqNumber: string) =>
+        `${appSettings.backend_url}v1/rfqs/${encodeURIComponent(rfqNumber)}/dueDate/reminder`,
+    rfqsReasonState: (rfqNumber: string) =>
+        `${appSettings.backend_url}v1/rfqs/${encodeURIComponent(rfqNumber)}/state/reason`,
+    rfqTableData: (rfqNumber: string) => `${appSettings.backend_url}v1/rfqs/${encodeURIComponent(rfqNumber)}/data`,
+    rfqCardsData: (rfqNumber: string) => `${appSettings.backend_url}v1/rfqs/${encodeURIComponent(rfqNumber)}/cards`,
+    rfqNextNumber: () => `${appSettings.backend_url}v1/rfqs/nextNumber`,
+    externalSupplierRfqsData: () => `${appSettings.backend_url}v1/external/rfqs/data`,
+    externalSupplierCollaborators: () => `${appSettings.backend_url}v1/external/collaborators`,
+    externalSupplierRfqsResponsibles: () => `${appSettings.backend_url}v1/external/rfqs/responsibles`,
+    externalSupplierProductsSearch: () => `${appSettings.backend_url}v1/external/productsV1/search`,
+    //supplierProductsSearch: () => `v1/external/productsV1/search`, // use this for products V2
+    processingSettings: (origin: string) => `${appSettings.backend_url}v1/platform/processingSettings/${origin}`,
+    processingPformSettings: (country: string) => `${appSettings.backend_url}v1/platform/processingSettings/pformsRoutes/${country}`,
+    processing: (origin: string) => `${appSettings.backend_url}v1/platform/processing/${origin}`,
+    processingBackup: (origin: string) => `${appSettings.backend_url}v1/platform/processingBackup/${origin}`,
+    termsTranslation: (language: string) => `${appSettings.backend_url}v1/platform/terms/${language}`,
+};

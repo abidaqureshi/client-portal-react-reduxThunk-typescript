@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "whichpharma",
+  "private_key_id": "50972f79ed290d7aba113035bd4367d8ddaf26c3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCVOQb63XiziJCB\nHqypcw0shZ4KE2Z/4mNWp4zWHlojUvWfaHlHbQxt+CzV5s0yZoU8ez+r87b2+hw1\nzpPTCOm6dT3j/Pl0NMnQdlWoGL1734tTXU4i3tFOQT+tVmsqHNzdVKDSo3T44kip\nOEGGI7ivAkk3kr61qICb9+vDA9O1/XdRZukYh2CXSDhHuqS8VuwpAniE4rEscNs4\n7DEUs1D2WbyNPslyMxltQzS0aTwJAvdcETLLqyM4sJqJXr1fUEj46LhdoJD4B99V\nSh92KvaFO2Xgr2xnj5HOGdEEwAdFsnP5puzaAaPaybgk4DoajP2JVC6pId9KFxDs\nC2JtJW8JAgMBAAECggEAC3kASbalWl2cM+aBLTX57qZclDcRoQYYJR1p/Txa1G8Y\nZf0eS0OIZRwONmkxoDe0SVt1yxPzHoye2/QvTAEEwfUpoPxeIXUS3xgkqxvb1Z5G\nPqPkfKyCOHCueKE1nrNBYog9z8lewOkvikhs9pHggnQRNQNEmQAvgyOjLgcpS8s8\nRo19X08ofkwAGUNGSZcaAgphptal3YvZvkTu0skgaMsXzM0wcgsq0pnphjBmioGh\npCEJKyfT+BlVDS2YxMEZqXLDCkoOqzcdFRi4WFXvtY4CUdb5wkLPfPu+S539sz0B\nxFQmCO1VCGca2NrTFs4OacT1aTwbg6KD5ZylhksgEQKBgQDGVG4t4KZUtgq8GddI\nherGZYVm4nh+wxz+EP505+qCFN/hAEnLR7K4jIf13IMIgqCExiDt3hPfLqmxKivi\nau6WIksx/rjKN3WTW3BXMT4FfiOBbFvxWR2UaKUjzf9K/KU50ZveN1mYByBPrUEK\niRjEvjIsBmGoJIzKir1FuwqiEwKBgQDAnRf27URvY0f/vUOClCz2woU2sgxWX3xG\nUhBufP6RreGcA2ONrylaSOHrlRMlOBCsr/OF0OKSjoiUojJ8RCfKjefhs8yQFj5H\n1T7qslmH6rCF9fzbqZ11pnXMEcAxwbMUBGGDKoNMOtO3und9y8pC1AoA1Kr5T4Fb\nTmCU/jbt8wKBgBUQyLckwmYDA/bgw8YXO02hYN8BtQy5yq2NvolKTNVORE1Qy4XE\n8s25V4OczWos/cG8jajWSsQM38dKlGizNO5LbDM+PAB2jY1+S9tnBpBsynanvMhQ\nz9yAlPHNoo0jcqVGh0i+Fk0YjK0J2Pu2fiP/k7KrZtoGL9IflGUAretzAoGAUWnV\nOEz/sSlAxIsGHwpsmvyLfBvz9Qo1KDAFu/3fSEo740rXaIrSKtRFkeMYDZJOEf/p\nKfWp3xKaDmEkf7v7KbWjfpYV8A1G0+wBxQgPqdB8PpNEBsEByjnK7q/OEfnyrJJR\neTSd/LmcxbruSOC7pFWlyMYbYnfFkIdncXKmWxsCgYBfdSdGF/aJTv0Wg+5gBaYy\nf2KPc1PPR+gq4Oirl06/NWlAd+j55XevPUDaKJld2hVUr63nXlg7mJ0AxOAb6YIw\nt5wHXLPTBguyw3XOnYYOZAGmtvxj4JR1SvpLAGrY1KcqaWJSUvMPm0kMTmNbANAz\n0th88X6tsw3b+xlFgMp9JA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "donotreply@whichpharma.iam.gserviceaccount.com",
+  "client_id": "103937773545462583526",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/donotreply%40whichpharma.iam.gserviceaccount.com"
+}

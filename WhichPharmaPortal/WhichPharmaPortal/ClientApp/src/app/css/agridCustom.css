@@ -1,0 +1,23 @@
+.agrid-column-name_pl {
+    padding-left: 2px !important; 
+}
+
+.agrid-column-country-pr {
+    padding-right: 2px !important; 
+}
+
+.agrid-column-rfq-quotes-status-pl {
+    padding-left:10px !important;
+}
+
+.agrid-column-rfq-quotes-status-pr {
+    padding-right:2px !important;
+}
+
+.agrid-column-rfq-quotes-origin-pr {
+    padding-right:0px !important;
+}
+
+.agrid-column-rfq-quotes-type-pr {
+    padding-right:2px !important;
+}

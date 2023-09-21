@@ -1,0 +1,18 @@
+.max-item {
+    color:red !important;
+    font-weight:600;
+}
+.min-item {
+    color:green !important;
+    font-weight: 600;
+}
+
+.below-average-item {
+    color:#ffc004 !important;
+    font-weight: 600;
+}
+
+.above-average-item {
+    color:#ff8700 !important;
+    font-weight: 600;
+}

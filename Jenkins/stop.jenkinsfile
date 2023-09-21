@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    options {
+         skipDefaultCheckout()
+    }
+
+    environment {
+        ADMIN_CRED = credentials('ADMIN')
+        SERVER_HOST = credentials('SERVER_HOST')
+        SERVER_HOSTKEY = credentials('SERVER_HOSTKEY')
+        SERVICE_NAME = 'RBPharma WhichPharma Portal'
+    }
+
+    stages {
+        stage('Stop service') {
+            steps {
+                echo 'Stoping service....'
+				sh 'plink -batch -P 22 -hostkey $SERVER_HOSTKEY -pw $ADMIN_CRED_PSW $ADMIN_CRED_USR@$SERVER_HOST c:/windows/System32/inetsrv/appcmd stop site /site.name:\\"$SERVICE_NAME\\"'
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.6.3" />
+    <PackageReference Include="WhichPharma.Models.Database" Version="2.1.8" />
+    <PackageReference Include="WhichPharma.Models.Queue" Version="2.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WhichPharma.StreakIntegrationClient\WhichPharma.StreakIntegration.csproj" />
+  </ItemGroup>
+
+</Project>

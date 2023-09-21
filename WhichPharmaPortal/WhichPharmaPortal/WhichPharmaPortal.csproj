@@ -1,0 +1,278 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TypeScriptTarget>ES6</TypeScriptTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TypeScriptTarget>ES6</TypeScriptTarget>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	<UserSecretsId>99c5397a-df4f-4d27-9aff-f819eb16e495</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.46" />
+    <PackageReference Include="ArrayToExcel" Version="2.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.9" />
+    <PackageReference Include="Serilog.Enrichers.Context" Version="4.2.0" />
+    <PackageReference Include="Serilog.Enrichers.Thread" Version="3.1.0" />
+    <PackageReference Include="Serilog.Extensions.Hosting" Version="3.1.0" />
+    <PackageReference Include="Serilog.Formatting.Compact" Version="1.1.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
+    <PackageReference Include="Serilog.Sinks.Seq" Version="4.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.6.3" />
+    <PackageReference Include="WhichPharma.Models" Version="2.1.4" />
+    <PackageReference Include="WhichPharma.Models.Database" Version="2.1.8" />
+    <PackageReference Include="WhichPharma.Models.Queue" Version="2.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Content Remove="$(SpaRoot)**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\components\ProductDetailsV2\index.tsx" />
+    <None Remove="ClientApp\src\components\ProductDetailsV2\styled.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WhichPharma.Database\WhichPharma.Database.csproj" />
+    <ProjectReference Include="..\WhichPharma.Models\WhichPharmaPortal.Models.csproj" />
+    <ProjectReference Include="..\WhichPharma.Queue\WhichPharma.Queue.csproj" />
+    <ProjectReference Include="..\WhichPharma.Services\WhichPharma.Services.csproj" />
+    <ProjectReference Include="..\WhichPharma.StreakIntegrationClient\WhichPharma.StreakIntegration.csproj" />
+    <ProjectReference Include="..\WhichPharma.Utils\WhichPharma.Utils.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\components\ProductDetailsV2\index.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\ProductDetailsV2\styled.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ClientApp\src\models\AdministrationForm.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\AdministrationForm.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\AuthenticatedUser.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\AuthenticatedUser.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\Contact.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\Contact.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\Country.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\Country.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\CreateRFQResult.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\CreateRFQResult.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\CreateUser - Copy.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\CreateUser - Copy.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\CreateUser.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\CreateUser.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\CreateUserResult.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\CreateUserResult.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\DrugForm.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\DrugForm.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\Login.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\Login.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\MappingItem.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\MappingItem.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\PharmaUnits.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\PharmaUnits.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\Price.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\Price.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\ProcessingPformsSettings.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\ProcessingSettings.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\ProcessingSettings.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\ProcessingSettings.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\Product.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\Product.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\ProductStatus.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\ProductStatus.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\ProductV1 - Copy.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\ProductV1 - Copy.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\ProductV1.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\ProductV1.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\ProductV2.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\ProductV2.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\RequestAccessLink.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\RequestAccessLink.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\ResultHandler.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\ResultHandler.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\ResultModel.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\ResultModel.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\RFQCreationError - Copy.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\RFQCreationError - Copy.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\RFQCreationError.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\RFQCreationError.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\RFQDetails.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\RFQDetails.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\RFQEmailData.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\RFQEmailData.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\RFQEntryState.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\RFQEntryState.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\RFQNote.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\RFQNote.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\RFQQuote - Copy.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\RFQQuote - Copy.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\RFQQuote.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\RFQQuote.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\RFQQuoteInfo.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\RFQQuoteInfo.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\RFQQuoteState.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\RFQQuoteState.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\RFQRequest.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\RFQRequest.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\RFQState.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\RFQState.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\RFQSummary.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\RFQSummary.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\RFQSupplierDetails.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\RFQSupplierDetails.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\RFQUpdateError.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\RFQUpdateError.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\SearchResult.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\SearchResult.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\Shortage.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\Shortage.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\ShortageInfo - Copy.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\ShortageInfo - Copy.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\ShortageInfo.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\ShortageInfo.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\ShortageType.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\ShortageType.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\Supplier.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\Supplier.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\SupplierRFQQuotesChange.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\SupplierRFQQuotesChange.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\SupplierState.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\SupplierState.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\SupplierType.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\SupplierType.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\TermsMapping.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\TermsMapping.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\ThirdPartyAccess.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\ThirdPartyAccess.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\UpdateUser.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\UpdateUser.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\User.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\User.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\UserChangeResult.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\UserChangeResult.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\src\models\UserRole.ts">
+      <CustomToolNamespace>..\WhichPharma.Models\Client\UserRole.cs</CustomToolNamespace>
+    </None>
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build" />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)build\**; $(SpaRoot)build-ssr\**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+</Project>

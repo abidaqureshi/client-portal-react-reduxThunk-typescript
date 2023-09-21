@@ -1,0 +1,17 @@
+﻿export enum RFQCreationError {
+	None = 'None',
+	SupplierFirstNameMissing = 'SupplierFirstNameMissing',
+	SupplierLastNameMissing = 'SupplierLastNameMissing',
+	UserFirstNameMissing = 'UserFirstNameMissing',
+	UserLastNameMissing = 'UserLastNameMissing',
+	UserEmailMissing = 'UserEmailMissing',
+	UserTitleMissing = 'UserTitleMissing',
+	ProductsTableMissing = 'ProductsTableMissing',
+	ReplyFormUrlMissing = 'ReplyFormUrlMissing',
+	SupplierNotFoundInDatabase = 'SupplierNotFoundInDatabase',
+	RecipientNotFoundInSupplierData = 'RecipientNotFoundInSupplierData',
+	UserNotFoundInDatabase = 'UserNotFoundInDatabase',
+	EmailBodyContainsUnknownPlaceholder = 'EmailBodyContainsUnknownPlaceholder',
+	UnableToConnectToYourEmailAccount = 'UnableToConnectToYourEmailAccount',
+	DueDateMissing = 'DueDateMissing',
+}
