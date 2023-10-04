@@ -6,7 +6,7 @@ import { AGSearch } from '../AGSearch';
 import SaveAltIcon from '@material-ui/icons/SaveAlt';
 import { TK } from '../../../store/Translations/translationKeys';
 import { useTranslations } from '../../../store/Translations/hooks';
-import { getSelectedProducts } from '../../../store/ProductsV2/selectors';
+import { getSelectedProducts } from '../../../store/Products/selectors';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({

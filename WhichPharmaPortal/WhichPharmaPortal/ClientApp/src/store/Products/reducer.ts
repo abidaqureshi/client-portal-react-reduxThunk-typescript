@@ -9,8 +9,9 @@ const unloadedState: ProductsState = {
     searchResult: [],
     selectedItems: [],
     searchTotal: 0,
-    timeInSeconds: 0,
     isLoading: false,
+    timeInSeconds: 0,
+    origins: {}
 };
 
 export const persistor = (state: ProductsState): ProductsState => ({
@@ -23,6 +24,7 @@ export const persistor = (state: ProductsState): ProductsState => ({
               .reduce((result, productId) => Object.assign(result, { [productId]: state.items[productId] }), {}),
     searchResult: [],
     searchTotal: 0,
+    timeInSeconds: 0,
     isLoading: false,
 });
 
@@ -47,6 +49,7 @@ const handleProductsLoaded = (state: ProductsState, action: ProductsLoadedAction
     items: Object.assign({ ...state.items }, ...action.result.items.map((p) => ({ [p.id]: p }))),
     searchResult: action.result.items.map((p) => p.id),
     searchTotal: action.result.total,
+    timeInSeconds: action.result.timeInSeconds || 0,
 });
 
 const handleProductSelected = (state: ProductsState, action: ProductAction): ProductsState => {
@@ -56,6 +59,23 @@ const handleProductSelected = (state: ProductsState, action: ProductAction): Pro
         selectedItems
     }
 } 
+
+const addOriginsByProductId = (state: ProductsState, action: ProductAction): ProductsState => {
+    const productId = action.productId;
+    const origins = action?.origins ? [...action.origins] : [];
+
+    let selectedItemsByProductId = {...state.origins};
+
+    selectedItemsByProductId[productId] = (selectedItemsByProductId[productId]) ?
+        [...new Set([...origins])]
+        :
+        [...new Set([...origins])]
+    return {
+        ...state,
+        origins: selectedItemsByProductId
+    }
+    
+}
 
 const handleProductDeselected = (state: ProductsState, action: ProductAction): ProductsState => ({
     ...state,
@@ -84,6 +104,8 @@ export const reducer: Reducer<ProductsState> = (
             return handleProductSelected(state, action as ProductAction);
         case Actions.productDeselected:
             return handleProductDeselected(state, action as ProductAction);
+        case Actions.addOriginByProductId:
+            return addOriginsByProductId(state, action as ProductAction);
         case Actions.productsDeselectAll:
             return handleProductsDeselectAll(state);
         default:

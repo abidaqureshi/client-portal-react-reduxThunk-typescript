@@ -11,8 +11,8 @@ import {
     getSelectedProducts,
     getAllProducts,
     getRequestTimeInSeconds,
-} from '../../store/ProductsV2/selectors';
-import { fetchProducts, productSelected, productDeselected } from '../../store/ProductsV2/actions';
+} from '../../store/Products/selectors';
+import { fetchProducts, productSelected, productDeselected } from '../../store/Products/actions';
 import { columnsArray } from './columns';
 import ProductsFilters from './ProductsFilters';
 import { Filters } from './ProductsFilters/types';

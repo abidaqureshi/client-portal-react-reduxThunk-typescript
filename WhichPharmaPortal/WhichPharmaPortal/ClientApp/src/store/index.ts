@@ -1,5 +1,5 @@
 import * as Products from './Products';
-import * as ProductsV2 from './ProductsV2';
+import * as ProductsV2 from './Products';
 import * as Shortages from './Shortages';
 import * as Suppliers from './Suppliers';
 import * as Sets from './Sets';
@@ -13,7 +13,7 @@ import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import { AnyAction, Reducer, Action } from 'redux';
 import { RouterState } from 'connected-react-router';
 
-export type Reconciler<S> = (state:S) => S;
+export type Reconciler<S> = (state: S) => S;
 
 export interface ApplicationState {
     router: RouterState;
@@ -61,10 +61,10 @@ export interface ApplicationReconciler {
     [key: string]: Reconciler<any> | undefined;
 }
 
-export const emptyReducer:<S>() => Reducer<S> = <S>() => (state: S|undefined, _: Action): S => state as S;
-export const emptyReconciler:<S>() => Reconciler<S> = <S>() => (state: S): S => state as S;
+export const emptyReducer: <S>() => Reducer<S> = <S>() => (state: S | undefined, _: Action): S => state as S;
+export const emptyReconciler: <S>() => Reconciler<S> = <S>() => (state: S): S => state as S;
 
-export const reducers : ApplicationReducer = {
+export const reducers: ApplicationReducer = {
     router: emptyReducer<RouterState>(),
     session: Session.reducer,
     translations: Translations.reducer,
@@ -79,7 +79,7 @@ export const reducers : ApplicationReducer = {
     platform: Platform.reducer,
 };
 
-export const applicationStateRehydrateReconcilers : ApplicationReconciler = {
+export const applicationStateRehydrateReconcilers: ApplicationReconciler = {
     router: emptyReconciler<RouterState>(),
     session: Session.reconciler,
     translations: Translations.reconciler,
@@ -94,7 +94,7 @@ export const applicationStateRehydrateReconcilers : ApplicationReconciler = {
     platform: Platform.reconciler,
 };
 
-export const applicationStatePersistReconcilers : ApplicationReconciler = {
+export const applicationStatePersistReconcilers: ApplicationReconciler = {
     router: emptyReconciler<RouterState>(),
     session: Session.persistor,
     translations: Translations.persistor,
