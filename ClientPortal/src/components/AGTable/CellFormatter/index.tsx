@@ -11,7 +11,7 @@ import { Product } from '../../../models/Product';
 import { useTranslations } from '../../../store/Translations/hooks';
 
 import { groupBy, tryGetNameFromOriginal } from '../../../utils/utils';
-import Price from '../../../components/PriceV2';
+import Price from '../../PriceV2';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import { TK } from '../../../store/Translations/translationKeys';
 import { CircleBox, TriangleBox } from '../../ProductDetailsV2/styled';

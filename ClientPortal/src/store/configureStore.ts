@@ -2,14 +2,20 @@ import { applyMiddleware, combineReducers, compose, createStore, Store } from 'r
 import thunk from 'redux-thunk';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { History } from 'history';
-import { ApplicationState, reducers, applicationStateRehydrateReconcilers, applicationStatePersistReconcilers, ApplicationReconciler } from './';
+import {
+    ApplicationState,
+    reducers,
+    applicationStateRehydrateReconcilers,
+    applicationStatePersistReconcilers,
+    ApplicationReconciler,
+} from '.';
 import { persistStore, persistReducer, PersistConfig, createTransform } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-const safeCallReconciler = <S>(state:S, key: string, reconcilers: ApplicationReconciler):S => {
+const safeCallReconciler = <S>(state: S, key: string, reconcilers: ApplicationReconciler): S => {
     const reconciler = reconcilers[key];
     return reconciler ? reconciler(state) : undefined;
-}
+};
 
 export default function configureStore(history: History, initialState?: ApplicationState) {
     const middleware = [thunk, routerMiddleware(history)];
@@ -20,15 +26,18 @@ export default function configureStore(history: History, initialState?: Applicat
     });
 
     const transform = createTransform<any, any>(
-        (stateFromReduxStore, key) => safeCallReconciler(stateFromReduxStore, key as string, applicationStatePersistReconcilers),
-        (stateFromLocalStorage, key) => safeCallReconciler(stateFromLocalStorage, key as string, applicationStateRehydrateReconcilers));
-        
+        (stateFromReduxStore, key) =>
+            safeCallReconciler(stateFromReduxStore, key as string, applicationStatePersistReconcilers),
+        (stateFromLocalStorage, key) =>
+            safeCallReconciler(stateFromLocalStorage, key as string, applicationStateRehydrateReconcilers),
+    );
+
     const persistOptions: PersistConfig<ApplicationState> = {
         key: 'whichpharma-state',
         storage,
         transforms: [transform],
     };
-    
+
     const persistedReducer = persistReducer(persistOptions, rootReducer);
 
     const enhancers = [];
